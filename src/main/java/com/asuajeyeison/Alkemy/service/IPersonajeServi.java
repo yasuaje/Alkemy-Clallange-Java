@@ -8,4 +8,6 @@ public interface IPersonajeServi {
 
     List<Personaje> findAll();
 
+    Personaje findPersonajeById(Long personajeId);
+
 }

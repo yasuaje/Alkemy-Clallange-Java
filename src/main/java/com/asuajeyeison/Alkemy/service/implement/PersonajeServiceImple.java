@@ -1,6 +1,7 @@
 package com.asuajeyeison.Alkemy.service.implement;
 
 import com.asuajeyeison.Alkemy.entity.Personaje;
+import com.asuajeyeison.Alkemy.exception.ResourceNotFoundException;
 import com.asuajeyeison.Alkemy.repository.PersonajeRepository;
 import com.asuajeyeison.Alkemy.service.IPersonajeServi;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,5 +18,10 @@ public class PersonajeServiceImple implements IPersonajeServi {
     @Override
     public List<Personaje> findAll() {
         return  personajeRepository.findAll();
+    }
+
+    @Override
+    public Personaje findPersonajeById(Long personajeId) {
+        return personajeRepository.findById(personajeId).orElseThrow(() -> new ResourceNotFoundException("Personaje con id numero : " + personajeId + " no existe"));
     }
 }
