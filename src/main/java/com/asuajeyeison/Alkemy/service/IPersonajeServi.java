@@ -10,4 +10,6 @@ public interface IPersonajeServi {
 
     Personaje findPersonajeById(Long personajeId);
 
+    List<Personaje> buscarPersonajePorNombre(String nombre);
+
 }

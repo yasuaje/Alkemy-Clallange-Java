@@ -24,4 +24,10 @@ public class PersonajeServiceImple implements IPersonajeServi {
     public Personaje findPersonajeById(Long personajeId) {
         return personajeRepository.findById(personajeId).orElseThrow(() -> new ResourceNotFoundException("Personaje con id numero : " + personajeId + " no existe"));
     }
+
+    @Override
+    public List<Personaje> buscarPersonajePorNombre(String nombre) {
+        return personajeRepository.findByNombre(nombre);
+    }
 }
+
