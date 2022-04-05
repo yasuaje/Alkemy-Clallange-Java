@@ -12,4 +12,6 @@ public interface IPersonajeServi {
 
     List<Personaje> buscarPersonajePorNombre(String nombre);
 
+    List<Personaje> buscarPersonajePorEdad(int edad);
+
 }

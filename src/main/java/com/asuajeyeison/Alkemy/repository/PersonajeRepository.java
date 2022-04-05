@@ -11,4 +11,6 @@ public interface PersonajeRepository extends JpaRepository<Personaje, Long> {
     Optional<Personaje> findPersonajeById(Long id);
 
     List<Personaje> findByNombre(String nombre);
+
+    List<Personaje> findByEdad(int edad);
 }

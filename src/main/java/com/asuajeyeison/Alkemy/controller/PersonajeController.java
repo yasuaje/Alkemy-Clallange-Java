@@ -12,7 +12,7 @@ import java.util.Collection;
 import java.util.List;
 
 @RestController
-@RequestMapping("/character")
+@RequestMapping("/characters")
 public class PersonajeController {
 
     @Autowired
@@ -29,10 +29,13 @@ public class PersonajeController {
         return new ResponseEntity<>(personaje, HttpStatus.OK);
     }
 
-    @GetMapping(params = "nombre")
-    public ResponseEntity<List<Personaje>> findCharacterByName(@RequestParam(value = "nombre", required = false) String nombre) {
-
+    @GetMapping(params = "name")
+    public ResponseEntity<List<Personaje>> findCharacterByName(@RequestParam(value = "name", required = false) String nombre) {
         return new ResponseEntity<>(personajeServi.buscarPersonajePorNombre(nombre), HttpStatus.OK);
+    }
 
+    @GetMapping(params = "age")
+    public ResponseEntity<List<Personaje>> findCharacterByEdad(@RequestParam(value = "age", required = false) int edad) {
+        return new ResponseEntity<>(personajeServi.buscarPersonajePorEdad(edad), HttpStatus.OK);
     }
 }
