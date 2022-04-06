@@ -38,4 +38,21 @@ public class PersonajeController {
     public ResponseEntity<List<Personaje>> findCharacterByEdad(@RequestParam(value = "age", required = false) int edad) {
         return new ResponseEntity<>(personajeServi.buscarPersonajePorEdad(edad), HttpStatus.OK);
     }
+    @GetMapping(params="movie")
+    public ResponseEntity<List<Personaje>> findCharacterByMovieId(@RequestParam(value = "movie", required = false) Long id) {
+        return new ResponseEntity<>(personajeServi.findByPeliculaId(id), HttpStatus.OK);
+    }
+
+    @PostMapping("/add")
+    public ResponseEntity<?> guardarPersonaje(@RequestBody Personaje personaje){
+        return new ResponseEntity<>(personajeServi.save(personaje),HttpStatus.CREATED);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> eliminarPersonaje(@PathVariable long id){
+        personajeServi.delete(id);
+        return new ResponseEntity<Void>(HttpStatus.OK);
+    }
+
+
 }

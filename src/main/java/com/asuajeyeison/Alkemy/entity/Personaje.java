@@ -1,5 +1,7 @@
 package com.asuajeyeison.Alkemy.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -24,5 +26,7 @@ public class Personaje {
 
     @ManyToMany
     @JoinTable(name = "personajes_peliculas", joinColumns = @JoinColumn(name = "personaje_id", referencedColumnName = "personaje_id"), inverseJoinColumns = @JoinColumn(name = "pelicula_id", referencedColumnName = "pelicula_id"))
+
+    @JsonManagedReference
     private Set<Pelicula> peliculas = new HashSet<>();
 }

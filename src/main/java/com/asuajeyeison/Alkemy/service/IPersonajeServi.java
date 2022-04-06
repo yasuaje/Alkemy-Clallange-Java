@@ -14,4 +14,9 @@ public interface IPersonajeServi {
 
     List<Personaje> buscarPersonajePorEdad(int edad);
 
+    List<Personaje> findByPeliculaId(Long idPelicula);
+
+    Personaje save(Personaje personaje);
+
+    void delete(Long id);
 }

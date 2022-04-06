@@ -34,5 +34,21 @@ public class PersonajeServiceImple implements IPersonajeServi {
     public List<Personaje> buscarPersonajePorEdad(int edad) {
         return personajeRepository.findByEdad(edad);
     }
+
+
+    @Override
+    public List<Personaje> findByPeliculaId(Long idPelicula) {
+        return personajeRepository.findByPeliculasId(idPelicula);
+    }
+
+    @Override
+    public Personaje save(Personaje personaje) {
+        return this.personajeRepository.save(personaje);
+    }
+
+    @Override
+    public void delete(Long id) {
+        personajeRepository.delete(findPersonajeById(id));
+    }
 }
 
